@@ -55,6 +55,17 @@ header {
 
 footer {
   border: 1px dotted grey;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+
+  p {
+    border: 1px dotted grey;
+
+    font-size: 14px;
+  }
 }
 
 
@@ -67,6 +78,16 @@ body.dark {
     }
     a {
       color: #8FA6FF;
+    }
+    a:hover {
+      color: #B3C2FF;
+    }
+  }
+
+  footer {
+    background-color: #1C2340;
+    p {
+      color: #8B93BE;
     }
   }
 }
