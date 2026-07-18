@@ -53,6 +53,35 @@ header {
 }
 
 
+.main {
+  border: 1px dotted grey;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .canvas-panel {
+    border: 1px dotted grey;
+
+    display: flex;
+    flex: 7 1 auto;
+    justify-content: center;
+    min-width: 320px;
+
+    #canvas {
+      flex: 0 1 840px;
+
+      aspect-ratio: 1 / 1;
+      background-color: white;
+    }
+  }
+
+  .editor-panel {
+    border: 1px dotted grey;
+
+    flex: 1 1 200px;
+  }
+}
+
 
 footer {
   border: 1px dotted grey;
@@ -84,6 +113,10 @@ body.dark {
     a:hover {
       color: #B3C2FF;
     }
+  }
+
+  .canvas-panel {
+    background-color: #242B4D;
   }
 
   footer {
