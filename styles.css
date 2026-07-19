@@ -31,6 +31,7 @@ header {
 
   ul {
     display: flex;
+    align-items: center;
     gap: 24px;
 
     margin: 0.55em 0;
@@ -38,6 +39,27 @@ header {
 
     li {
       list-style: none;
+      }
+
+    .theme-switch {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 8px;
+
+      border: 2px solid #535870;
+      border-radius: 18px;
+      padding: 4px 12px 4px 8px;
+
+      img {
+        border: 2px solid #535870;
+        border-radius: 18px;
+        padding: 4px;
+      }
+
+      p {
+        margin: 0;
+      }
     }
   }
 
@@ -141,6 +163,11 @@ body.dark {
     a:hover {
       color: #5b81ff;
     }
+    .theme-switch {
+      p {
+        color: #aab7e1;
+      }
+    }
   }
 
   .main {
@@ -191,6 +218,11 @@ body.light {
     }
     a:hover {
       color: #953661;
+    }
+    .theme-switch {
+      p {
+        color: #C24A80;
+      }
     }
   }
 
