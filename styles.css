@@ -38,13 +38,15 @@ header {
 
     li {
       list-style: none;
-
-      a {
-        text-decoration: none;
-      }
     }
   }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
+
 
 
 .main {
@@ -98,6 +100,7 @@ header {
         margin: 0;
         padding: 10px 20px;
       }
+
       div {
         flex: 1 0 0;
 
@@ -128,13 +131,15 @@ body.dark {
   header {
     background-color: #151833;
     h1 {
-      color: #E9EBF5;
+      a {
+        color: #E9EBF5;
+      }
     }
     a {
       color: #aab7e1;
     }
     a:hover {
-      color: #9DB4FF;
+      color: #5b81ff;
     }
   }
 
@@ -142,7 +147,7 @@ body.dark {
     .canvas-panel {
       background-color: #1A1F33;
       #canvas {
-        background-color: white;
+        background-color: #FFFFFF;
       }
     }
     .editor-panel {
