@@ -129,7 +129,7 @@ footer {
 
 body.dark {
   header {
-    background-color: #151833;
+    background-color: #12152F;
     h1 {
       a {
         color: #E9EBF5;
@@ -172,6 +172,57 @@ body.dark {
     background-color: #12152F;
     p {
       color: #7f7aa1;
+    }
+  }
+}
+
+
+
+body.light {
+  header {
+    background-color: #F3D9E4;
+    h1 {
+      a {
+        color: #824e6c;
+      }
+    }
+    a {
+      color: #C24A80;
+    }
+    a:hover {
+      color: #953661;
+    }
+  }
+
+  .main {
+    .canvas-panel {
+      background-color: #FBEFF3;
+      #canvas {
+        background-color: #FFFFFF;
+      }
+    }
+    .editor-panel {
+      h2 {
+        background-color: #F6E3EB;
+        color: #3A2230;
+      }
+      .ribbon {
+        h3 {
+          background-color: #EFC9D9;
+          color: #5A2E42;
+        }
+        div {
+          background-color: #F6E3EB;
+          color: #6E5560;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: #F3D9E4;
+    p {
+      color: #97727f;
     }
   }
 }
