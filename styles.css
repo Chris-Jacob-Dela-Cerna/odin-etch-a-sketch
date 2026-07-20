@@ -143,37 +143,41 @@ header {
 
     #canvas-settings {
       div {
-        display: flex;
-        gap: 12px;
-
-        label {
-          padding-top: 2px;
-        }
-
         div {
           display: flex;
-          flex: 0 0 auto;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
+          gap: 12px;
 
           padding: 0;
 
-          input {
-            border: 1px solid #848aa6;
-            border-radius: 15px;
-            height: 1.8em; 
-            text-align: center;
-            width: 8em;
-          }
-          input:focus {
-            border: 3px solid #819eff;
-            outline: 1px solid #FFFFFF;
+          label {
+            padding-top: 2px;
           }
 
-          p {
-            font-size: 0.9em;
-            margin: 0;
+          div {
+            display: flex;
+            flex: 0 0 auto;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+
+            padding: 0;
+
+            input {
+              border: 1px solid #848aa6;
+              border-radius: 15px;
+              height: 1.8em; 
+              text-align: center;
+              width: 8em;
+            }
+            input:focus {
+              border: 3px solid #819eff;
+              outline: 1px solid #FFFFFF;
+            }
+
+            p {
+              font-size: 0.9em;
+              margin: 0;
+            }
           }
         }
       }

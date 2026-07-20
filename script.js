@@ -1,7 +1,9 @@
 //  ---  DOM References  ---
 
 const bodyTag = document.querySelector("body");
-const canvas = document.querySelector(".canvas")
+const canvas = document.querySelector(".canvas");
+const currentCanvasSize = document.getElementById("current-canvas-size")
+const inputCanvasSize = document.getElementById("canvas-size");
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
 const themeSwitch = document.querySelector(".theme-switch");
@@ -41,6 +43,9 @@ let GridSize = defaultGridSize;
 
 
 function renderCanvas(GridSize) {
+  currentCanvasSize.textContent = `Current = ${GridSize}`
+  canvas.replaceChildren()
+
   const totalSquares = GridSize * GridSize;
   const gridRatio = 100 / GridSize;
 
@@ -52,7 +57,6 @@ function renderCanvas(GridSize) {
 }
 
 
-const inputCanvasSize = document.getElementById("canvas-size");
 inputCanvasSize.addEventListener("keydown", function(event) {
   if (event.key !== "Enter") return;
 
@@ -62,7 +66,9 @@ inputCanvasSize.addEventListener("keydown", function(event) {
   const sizeInput = Number(userInput)
   if (!Number.isInteger(sizeInput) || sizeInput < 1 || sizeInput > maxGridSize) return;
 
-  console.log("yes")
+  inputCanvasSize.value = ""
+  GridSize = sizeInput
+  renderCanvas(GridSize)
 });
 
 
