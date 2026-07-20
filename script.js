@@ -10,6 +10,7 @@ const themeSwitch = document.querySelector(".theme-switch");
 
 //  ---  Configuration  ---
 
+const maxGridSize = 100;
 const defaultGridSize = 16;
 
 
@@ -36,7 +37,10 @@ themeSwitch.addEventListener("click", function() {
 
 //  ---  Canvas  ---
 
-function renderCanvas(GridSize = defaultGridSize) {
+let GridSize = defaultGridSize;
+
+
+function renderCanvas(GridSize) {
   const totalSquares = GridSize * GridSize;
   const gridRatio = 100 / GridSize;
 
@@ -48,7 +52,21 @@ function renderCanvas(GridSize = defaultGridSize) {
 }
 
 
+const inputCanvasSize = document.getElementById("canvas-size");
+inputCanvasSize.addEventListener("keydown", function(event) {
+  if (event.key !== "Enter") return;
+
+  const userInput = inputCanvasSize.value.trim()
+  if (userInput === "") return;
+
+  const sizeInput = Number(userInput)
+  if (!Number.isInteger(sizeInput) || sizeInput < 1 || sizeInput > maxGridSize) return;
+
+  console.log("yes")
+});
+
+
 
 //  ---  Initialization  ---
 
-renderCanvas();
+renderCanvas(GridSize);
