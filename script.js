@@ -1,8 +1,19 @@
+//  ---  DOM References  ---
 
 const bodyTag = document.querySelector("body");
 const themeSwitch = document.querySelector(".theme-switch");
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
+
+
+
+//  ---  Configuration  ---
+
+const defaultGridSize = 16
+
+
+
+//  ---  Page Theme  ---
 
 themeSwitch.addEventListener("click", function() {
   bodyTag.classList.toggle("dark");
@@ -22,13 +33,22 @@ themeSwitch.addEventListener("click", function() {
 
 
 
-const defaultGridSize = 16;
-const totalSquares = defaultGridSize * defaultGridSize;
-const gridRatio = 100 / defaultGridSize;
-const canvas = document.querySelector(".canvas");
+//  ---  Canvas  ---
 
-for (let i = 0; i < totalSquares; i++) {
-  const square = document.createElement("div")
-  square.style["flex"] = `1 1 ${gridRatio}%`
-  canvas.appendChild(square)
-};
+function renderCanvas(GridSize = ) {
+  const totalSquares = GridSize * GridSize;
+  const gridRatio = 100 / GridSize;
+  const canvas = document.querySelector(".canvas");
+
+  for (let i = 0; i < totalSquares; i++) {
+    const square = document.createElement("div")
+    square.style["flex"] = `1 1 ${gridRatio}%`
+    canvas.appendChild(square)
+  };
+}
+
+
+
+// ---  Initialization  ---
+
+renderCanvas()

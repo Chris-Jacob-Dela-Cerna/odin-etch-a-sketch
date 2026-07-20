@@ -84,7 +84,7 @@ header {
     flex: 7 1 auto;
     justify-content: center;
     min-width: 320px;
-    padding: 8px;
+    padding: 10px;
 
     .canvas {
       display: flex;
