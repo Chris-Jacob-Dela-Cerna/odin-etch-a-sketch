@@ -1,15 +1,16 @@
 //  ---  DOM References  ---
 
 const bodyTag = document.querySelector("body");
-const themeSwitch = document.querySelector(".theme-switch");
+const canvas = document.querySelector(".canvas")
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
+const themeSwitch = document.querySelector(".theme-switch");
 
 
 
 //  ---  Configuration  ---
 
-const defaultGridSize = 16
+const defaultGridSize = 16;
 
 
 
@@ -28,7 +29,7 @@ themeSwitch.addEventListener("click", function() {
     themeSwitch.style["padding"] = "4px 8px 4px 12px";
     themeIcon.setAttribute("src", "img/light_mode_icon.png");
     themeInfo.textContent = "Light";
-  }
+  };
 });
 
 
@@ -38,12 +39,11 @@ themeSwitch.addEventListener("click", function() {
 function renderCanvas(GridSize = defaultGridSize) {
   const totalSquares = GridSize * GridSize;
   const gridRatio = 100 / GridSize;
-  const canvas = document.querySelector(".canvas");
 
   for (let i = 0; i < totalSquares; i++) {
-    const square = document.createElement("div")
-    square.style["flex"] = `1 1 ${gridRatio}%`
-    canvas.appendChild(square)
+    const square = document.createElement("div");
+    square.style["flex"] = `1 1 ${gridRatio}%`;
+    canvas.appendChild(square);
   };
 }
 
@@ -51,4 +51,4 @@ function renderCanvas(GridSize = defaultGridSize) {
 
 //  ---  Initialization  ---
 
-renderCanvas()
+renderCanvas();
