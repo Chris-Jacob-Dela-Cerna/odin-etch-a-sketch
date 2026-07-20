@@ -134,7 +134,7 @@ header {
         padding: 10px 20px;
       }
 
-      div {
+      .container {
         flex: 1 0 0;
 
         padding: 20px 30px;
@@ -145,8 +145,12 @@ header {
       div {
         display: flex;
         flex-wrap: wrap;
+        gap: 8px;
 
         button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           flex: 0 1 46px;
 
           aspect-ratio: 1 / 1;
@@ -162,9 +166,7 @@ header {
       div {
         div {
           display: flex;
-          gap: 12px;
-
-          padding: 0;
+          gap: 18px;
 
           label {
             padding-top: 2px;
