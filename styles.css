@@ -83,6 +83,8 @@ header {
     align-items: center;
     flex: 7 1 auto;
     justify-content: center;
+    
+    cursor: crosshair;
     min-width: 320px;
     padding: 10px;
 
@@ -92,10 +94,11 @@ header {
       flex-wrap: wrap;
 
       aspect-ratio: 1 / 1;
-
+      
       div {
         aspect-ratio: 1 / 1;
         background-color: white;
+        user-select: none;
       }
     }
   }

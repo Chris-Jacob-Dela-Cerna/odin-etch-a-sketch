@@ -61,7 +61,10 @@ function renderCanvas(gridSize) {
   currentCanvasSize.textContent = `Current: ${gridSize}`;
 };
 
-canvas.addEventListener("mousedown", () => canvasMouseDown = true);
+canvas.addEventListener("mousedown", (event) => {
+  canvasMouseDown = true;
+  event.target.style["background-color"] = "red";
+});
 canvas.addEventListener("mouseup", () => canvasMouseDown = false);
 canvas.addEventListener("mousemove", (event) => {
   if (canvasMouseDown) event.target.style["background-color"] = "red";
