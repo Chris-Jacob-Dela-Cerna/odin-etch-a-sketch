@@ -17,11 +17,11 @@ const toolBoxTools = document.getElementById("tools");
 
 //  ---  Configs and Globals  ---
 
-const allToolsDOM = [toolBoxPen, toolBoxEraser]
+const allToolsDOM = [toolBoxPen, toolBoxEraser];
 const colors = [
   "#FFFFFF", "#F2F2F2", "#C0C0C0", "#4D4D4D",
   "#1A1A1A", "#000000"
-]
+];
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
@@ -31,6 +31,16 @@ let canvasMouseDown = false;
 let eraserColor = "#FFFFFF";
 let penColor = "#000000";
 let gridSize = defaultGridSize;
+
+
+
+//  ---  Utility  ---
+
+function activeDisplay(activeElement, allElements) {
+  activeElement.classList.toggle("active");
+  allElements.filter(tool => tool !== activeElement)
+             .forEach(otherElement => otherElement.classList.remove("active"));
+}
 
 
 
@@ -83,11 +93,11 @@ function useTool(target) {
 
 canvas.addEventListener("mousedown", (event) => {
   canvasMouseDown = true;
-  useTool(event.target)
+  useTool(event.target);
 });
 canvas.addEventListener("mousemove", (event) => {
   if (!canvasMouseDown) return;
-  useTool(event.target)
+  useTool(event.target);
 });
 canvas.addEventListener("mouseup", () => canvasMouseDown = false);
 
@@ -101,12 +111,6 @@ function toggleTool(tool) {
   } else activeTool = null;
 };
 
-function toolActiveDisplay(activeToolDOM, allToolsDOM) {
-  activeToolDOM.classList.toggle("active")
-  allToolsDOM.filter(tool => tool !== activeToolDOM)
-             .forEach(otherTool => otherTool.classList.remove("active"));
-}
-
 toolBoxTools.addEventListener("click", event => {
   const target = event.target;
   if (target.tagName !== "BUTTON") return;
@@ -115,22 +119,31 @@ toolBoxTools.addEventListener("click", event => {
   toggleTool(targetTool);
 
   let activeToolDOM = null;
-  if (targetTool === "pen") activeToolDOM = toolBoxPen;
-  else if (targetTool === "eraser") activeToolDOM = toolBoxEraser;
-  toolActiveDisplay(activeToolDOM, allToolsDOM);
+  activeToolDOM = target;
+
+  activeDisplay(activeToolDOM, allToolsDOM);
 });
 
 
 
 //  --- Color Palette ---
 
+function toggleColor(color) {
+  if (activeColor !== color) {
+    activeColor = color;
+  } else activeColor = null;
+};
+
 function renderPalette() {
   for (color of colors) {
-    const button = document.createElement("button")
-    button.style["background-color"] = color
-    palette.appendChild(button)
+    const button = document.createElement("button");
+    button.style["background-color"] = color;
+    palette.appendChild(button);
   }
 
+
+
+  // activeDisplay(activeColor, palette.children)
 }
 
 
@@ -143,7 +156,7 @@ inputCanvasSize.addEventListener("keydown", event => {
   const userInput = inputCanvasSize.value.trim();
   if (userInput === "") return;
 
-  const sizeInput = Number(userInput)
+  const sizeInput = Number(userInput);
   if (!Number.isInteger(sizeInput) || sizeInput < 1 || sizeInput > maxGridSize) return;
 
   inputCanvasSize.value = "";
@@ -156,4 +169,4 @@ inputCanvasSize.addEventListener("keydown", event => {
 //  ---  Initialization  ---
 
 renderCanvas(gridSize);
-renderPalette(activeColor)
+renderPalette(activeColor);
