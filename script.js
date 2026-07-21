@@ -20,7 +20,9 @@ const defaultGridSize = 16;
 const maxGridSize = 100;
 
 let activeTool = null;
-let canvasMouseDown = false
+let canvasMouseDown = false;
+let eraserColor = "#FFFFFF";
+let penColor = "#000000";
 let gridSize = defaultGridSize;
 
 
@@ -61,14 +63,27 @@ function renderCanvas(gridSize) {
   currentCanvasSize.textContent = `Current: ${gridSize}`;
 };
 
+function useTool(target) {
+  switch (activeTool) {
+    case "pen":
+      target.style["background-color"] = penColor;
+      break;
+    case "eraser":
+      target.style["background-color"] = eraserColor;
+      break;
+  }
+};
+
 canvas.addEventListener("mousedown", (event) => {
   canvasMouseDown = true;
-  event.target.style["background-color"] = "red";
+  useTool(event.target)
+});
+canvas.addEventListener("mousemove", (event) => {
+  if (!canvasMouseDown) return;
+  useTool(event.target)
 });
 canvas.addEventListener("mouseup", () => canvasMouseDown = false);
-canvas.addEventListener("mousemove", (event) => {
-  if (canvasMouseDown) event.target.style["background-color"] = "red";
-});
+
 
 
 //  --- Toolbox  ---
