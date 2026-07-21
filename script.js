@@ -36,10 +36,10 @@ let gridSize = defaultGridSize;
 
 //  ---  Utility  ---
 
-function activeDisplay(activeElement, allElements) {
-  activeElement.classList.toggle("active");
+function activeDisplay(activeElement, allElements, activeClass) {
+  activeElement.classList.toggle(activeClass);
   allElements.filter(tool => tool !== activeElement)
-             .forEach(otherElement => otherElement.classList.remove("active"));
+             .forEach(otherElement => otherElement.classList.remove(activeClass));
 }
 
 
@@ -121,7 +121,7 @@ toolBoxTools.addEventListener("click", event => {
   let activeToolDOM = null;
   activeToolDOM = target;
 
-  activeDisplay(activeToolDOM, allToolsDOM);
+  activeDisplay(activeToolDOM, allToolsDOM, "active-tool");
 });
 
 
@@ -140,8 +140,6 @@ function renderPalette() {
     button.style["background-color"] = color;
     palette.appendChild(button);
   }
-
-
 
   // activeDisplay(activeColor, palette.children)
 }
