@@ -71,19 +71,21 @@ function toggleTool(tool) {
 };
 
 function toolActiveDisplay(activeToolDOM, allTools) {
-  const otherTools = allTools.filter(tool => tool !== activeToolDOM)
   activeToolDOM.classList.toggle("active")
-  otherTools.forEach(otherTool => otherTool.classList.remove("active"));
+  allTools.filter(tool => tool !== activeToolDOM)
+          .forEach(otherTool => otherTool.classList.remove("active"));
 }
 
 toolBoxTools.addEventListener("click", event => {
   const target = event.target;
   if (target.tagName !== "BUTTON") return;
 
-  toggleTool(target.id);
+  const targetTool = target.id
+  toggleTool(targetTool);
+
   let activeToolDOM = null
-  if (activeTool === "pen") activeToolDOM = toolBoxPen;
-  else if (activeTool === "eraser") activeToolDOM = toolBoxEraser;
+  if (targetTool === "pen") activeToolDOM = toolBoxPen;
+  else if (targetTool === "eraser") activeToolDOM = toolBoxEraser;
   toolActiveDisplay(activeToolDOM, allTools)
 });
 
