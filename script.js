@@ -25,11 +25,11 @@ const colors = [
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
-let activeColor = null;
+let activeColor = "#000000";
 let activeTool = null;
 let canvasMouseDown = false;
 let eraserColor = "#FFFFFF";
-let penColor = "#000000";
+let penColor = activeColor;
 let gridSize = defaultGridSize;
 
 
@@ -138,6 +138,7 @@ function renderPalette() {
   for (color of colors) {
     const button = document.createElement("button");
     button.style["background-color"] = color;
+    if (color === activeColor) button.classList.toggle("active-color");
     palette.appendChild(button);
   }
 

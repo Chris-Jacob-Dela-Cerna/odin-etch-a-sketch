@@ -186,8 +186,7 @@ header {
             max-width: 32px;
             padding: 0;
           }
-          button:hover,
-          .active-color {
+          button:hover {
             max-height: 36px;
             max-width: 36px;
           }
@@ -312,7 +311,7 @@ body.dark {
       #toolbox-settings {
         .container {
           button {
-            background-color: #cec7e6;
+            background-color: #c0b7dd;
           }
           button:hover {
             background-color: #FFFFFF;
@@ -320,7 +319,6 @@ body.dark {
           .active-tool {
             background-color: #FFFFFF;
             border: 4px solid #7C9CFF;
-            outline: 3px solid #cec7e6;
           }
           .active-tool:hover {
             background-color: #cec7e6;
@@ -423,7 +421,6 @@ body.light {
           .active-tool {
             background-color: #ebd4e8;
             border: 4px solid #C24A80;
-            outline: 3px solid #FFFFFF;
           }
           .active-tool:hover {
             background-color: #FFFFFF;
