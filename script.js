@@ -16,9 +16,9 @@ const tools = document.getElementById("tools");
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
+let activeTool = null;
 let gridSize = defaultGridSize;
-let useEraser = false;
-let usePencil = false;
+
 
 
 
@@ -68,21 +68,18 @@ tools.addEventListener("click", (event) => {
 
   switch (target.id) {
     case "pen":
-      if (usePencil === false) {
-        usePencil = true;
-        useEraser = false;
-      } else usePencil = false;
+      if (activeTool !== "pen") {
+        activeTool = "pen"
+      } else activeTool = null
       break;
     case "eraser":
-      if (useEraser === false) {
-        useEraser = true;
-        usePencil = false;
-      } else useEraser = false;
+      if (activeTool !== "eraser") {
+        activeTool = "eraser"
+      } else activeTool = null
       break;
   };
 
-  console.log("pen: " + usePencil)
-  console.log("eraser: " + useEraser)
+  console.log(activeTool)
 });
 
 
